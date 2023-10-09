@@ -1,0 +1,42 @@
+Given an array of strings `strs`, group the anagrams together.
+ *You can return the answer in any order.* 
+
+ An anagram is a word or phrase formed by rearranging the letters of a
+ different word or phrase, typically using all the original letters 
+ exactly once.
+
+ **Example 1:**
+
+ Input: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+ Output: [["bat"],["nat", "tan"],["ate", "eat", "tea"]]
+
+function groupAnagrams(strs) {
+    // Step 1: Create an empty object to store anagrams
+    const anagramGroups = {};
+
+    // Step 2: Iterate through each string in the input array
+    for (let str of strs) {
+        // Step 3: Sort the characters of the string to create a unique key
+        const sortedStr = str.split('').sort().join('');
+
+        // Step 4: Check if the sorted string is already a key in the anagramGroups object
+        // If not, create an empty array as the value for that key
+        if (!anagramGroups[sortedStr]) {
+            anagramGroups[sortedStr] = [];
+        }
+
+        // Step 5: Push the original string into the corresponding key's array
+        anagramGroups[sortedStr].push(str);
+    }
+
+    // Step 6: Convert the values of the anagramGroups object to an array
+    const result = Object.values(anagramGroups);
+
+    return result;
+}
+
+// Usage
+const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+const groupedAnagrams = groupAnagrams(strs);
+console.log(groupedAnagrams);
+
