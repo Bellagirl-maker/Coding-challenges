@@ -1,0 +1,22 @@
+function findMissingNumbers(nums) {
+    // Step 1: Create an empty array to store missing numbers
+    let missingNumbers = [];
+
+    // Step 2: Determine the range of numbers
+    let maxNum = Math.max(...nums);
+
+    // Step 3: Iterate through the range
+    for (let i = 0; i <= maxNum; i++) {
+        // Step 4: Check if the number exists in the nums array
+        if (!nums.includes(i)) {
+            missingNumbers.push(i);
+        }
+    }
+
+    return missingNumbers;
+}
+
+// Usage
+const nums = [4, 0, 1];
+const missing = findMissingNumbers(nums);
+console.log(missing); // Output: [2, 3]
