@@ -1,1 +1,1 @@
-This repository contains some challenges that I have tried to solve.
+This repository contains some coding challenges that I have tried to solve.
